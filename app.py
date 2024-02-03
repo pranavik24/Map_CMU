@@ -10,7 +10,8 @@ def index_page():  # put home applications's code here
     buildings = ["Gates-Hillman", "Newell-Simon", "Wean", "Scott", "Hamerschlag", "Scaife", "ANSYS", "Porter", "Baker",
                 "Hunt Library", "College of Fine Arts", "Posner", "Hall of the Arts", "Margaret Morrison", 
                 "Cohon University Center", "Purnell Center for the Arts", "Tepper", "Mellon Institute", "Doherty"]
-    return render_template('index.html', buildings=buildings, dorms = dorms)
+    mealTimes = ["Before Class 1", "Between Class 1 and 2", "Between Class 2 and 3", "Between Class 3 and 4","After Class 4"]
+    return render_template('index.html', buildings=buildings, dorms = dorms, mealTimes = mealTimes)
 
 @app.route('/route', methods=['POST'])
 def route_page():  # put route applications's code here
@@ -42,13 +43,20 @@ def route_page():  # put route applications's code here
                         "Tepper": "TEP",
                         "Mellon Institute": "MI",
                         "Doherty": "DH"}
+    mealTimeDict = {"Before Class 1": 1,
+                    "Between Class 1 and 2":2,
+                    "Between Class 2 and 3":3,
+                    "Between Class 3 and 4":4,
+                    "After Class 4":5,
+                    }
+    whenMeal = mealTimeDict.get(request.form["mealTime"])
     states.append(dormsShort.get(request.form["dorms"]))
     states.append(buildingsShort.get(request.form["class1"]))
     states.append(buildingsShort.get(request.form["class2"]))
     states.append(buildingsShort.get(request.form["class3"]))
     states.append(buildingsShort.get(request.form["class4"]))
+    states.insert(whenMeal, "MEAL")
     print(states)
-    whenMeal = request.form["mealTime"]
     
     return render_template('route.html')
 
