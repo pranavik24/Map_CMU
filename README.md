@@ -9,3 +9,6 @@ The search algorithm used in our application is Uniform-Cost Search, which takes
 
 ## Scalability
 Currently, we are working on an approximately 150x150 pixel rendering of the map, with limited clarity. In the future, we hope to improve the precision of the building shapes and path, and potentially include floor plans for each building. 
+
+### Note
+As the application is hosted on a local host, for personal use, the search function in app.py must be edited to save the rendered images to the absolute path of your local directory. 
