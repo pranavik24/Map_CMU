@@ -93,8 +93,6 @@ def moveCost(row,col,dRow,dCol):
           cost=1
      return cost
 
-# def heuristicCost(startRow,startCol,endRow,endCol):
-#      return max(abs(endRow-startRow), abs(endCol-startCol))
 
 def getNeighbors(cost, node):
     possibleLocations=[]
@@ -139,15 +137,13 @@ def doSearch(startNode, stopNode):
            
 
 path=doSearch(startNode, stopNode)
-# print(path)
+
 pixelGrid= iio.imread("cmu_map_small.png", pilmode="RGB")
 for locn in path:
     row=locn[0]
     col=locn[1]
     pixelGrid[row][col]=[63,255,63]
 
-# print(pixelGrid)
-# pixelGrid= np.array(pixelGrid).reshape(135, 173, 3)
-# pixelGrid=np.array(pixelGrid)
+
 img = Image.fromarray(pixelGrid.astype(np.uint8) * 255, mode='RGB')
 img = img.save("route.png")
