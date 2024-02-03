@@ -1,14 +1,25 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    border: 0px;
+    background-color: rgb(98, 178, 162) ;
+    font-family: Helvetica, Sans-Serif;}
+
 .schedule{
-    text-align: center;
-    padding-top: 20px;
+    justify-content: center;
 }
 .schedule-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* vh stands for viewport height */
+    width: 50%; 
+    margin: 15% auto 15% auto; 
+    padding: 2% 2% 2% 2%;
+    display: grid;
+    align-content: center;
+    background-color: white;
 }
 
 .schedule-form {
-    width: 50%; /* adjust this value to control the form's width */
-  }
+    padding: 5% 5% 5% 5%;
+  } 
+
+.

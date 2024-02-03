@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Water Route Website</title>
+  <title> Route Website</title>
   <link href="../static/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -24,31 +24,31 @@
             <option name="dormType" value="{{d}}">{{d}}</option>
          {% endfor %}
     </select>
-    <label for="cars">Where is your first class?:</label>
+    <label for="classes">Where is your first class?:</label>
     <select name="class1" id="class1">
         {% for b in buildings %}
             <option name="buildingType" value="{{b}}">{{b}}</option>
          {% endfor %}
     </select>
-    <label for="cars">Where is your second class?:</label>
+    <label for="classes">Where is your second class?:</label>
     <select name="class2" id="class2">
         {% for b in buildings %}
             <option name="buildingType" value="{{b}}">{{b}}</option>
          {% endfor %}
     </select>
-    <label for="cars">Where is your third class?:</label>
+    <label for="classes">Where is your third class?:</label>
     <select name="class3" id="class3">
         {% for b in buildings %}
         <option name="buildingType" value="{{b}}">{{b}}</option>
         {% endfor %}
     </select>
-    <label for="cars">Where is your fourth class?:</label>
+    <label for="classes">Where is your fourth class?:</label>
     <select name="class4" id="class4">
         {% for b in buildings %}
             <option name="buildingType" value="{{b}}">{{b}}</option>
          {% endfor %}
     </select>
-    <label for="cars">When would you like to have a meal?:</label>
+    <label for="meals">When would you like to have a meal?:</label>
     <select name="mealTime" id="mealTime">
         {% for m in mealTimes %}
             <option name="mealType" value="{{m}}">{{m}}</option>
