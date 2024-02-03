@@ -127,7 +127,8 @@ def route_page():  # put route applications's code here
     class3 = request.form["class3"]
     class4 = request.form["class4"]
     places = [dorms, class1, class2, class3, class4]
-            
+    
+    states = []
     states.append(dormsShort.get(request.form["dorms"]))
     states.append(buildingsShort.get(request.form["class1"]))
     states.append(buildingsShort.get(request.form["class2"]))

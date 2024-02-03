@@ -10,11 +10,10 @@
 
 <body>
   <div id="routeContainer">
-<h1 id="routeHeader">
-    CMU Mapped</h1>
+<img src="{{ url_for('static', filename='logo_img.png') }}"" class="logo">
   </div>
 
-  <div style="text-align:center" id="routeInfo">
+  <div style="text-align:center" class="routeInfo">
      
       <h1> This is the route from {{places[0]}} to {{places[1]}} </h1>
       <img src ="{{ url_for('static', filename='route1.png') }}"" height=405px width=519px>
@@ -34,7 +33,7 @@
       <h1> This is the route from {{places[5]}} to {{places[6]}} </h1>
       <img src ="{{ url_for('static', filename='route6.png') }}"" height=405px width=519px>
    
-        <h2> Hope You Enjoy Your Classes</h1>
+        <h2> Hope You Enjoy Your Classes!</h2>
 </div>
 
 
