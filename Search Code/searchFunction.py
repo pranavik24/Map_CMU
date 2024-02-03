@@ -90,6 +90,28 @@ def moveCost(row,col,dRow,dCol):
           cost=1
      return cost
 
+def heuristic(startRow,startCol,endRow,endCol):
+     return max(abs(endRow-startRow), abs(endCol-startCol))
+
+def closestMeal(currRow, currCol):
+    mealList=["STACKD","TRUE BURG","ENTROPY","ABP",
+              "TASTE OF INDIA","BUILD PIZZA","FORBES SUB",
+              "HUNAN","REV","DE FER","SCHATZ","EXCHANGE","EDGE","WILD BLUE"]
+    leastRest=None
+    leastDist=-1
+    for restaurant in mealList:
+        row=find(restaurant)[0][0]
+        col=find(restaurant)[0][1]
+        if leastDist==-1:
+            leastDist=heuristic(row,col,currRow,currCol)
+            leastRest=restaurant
+        elif heuristic(row,col,currRow,currCol)<leastDist:
+            leastDist=heuristic(row,col,currRow,currCol)
+            leastRest=restaurant
+    return leastRest
+        
+
+
 
 def getNeighbors(cost, node):
     possibleLocations=[]
