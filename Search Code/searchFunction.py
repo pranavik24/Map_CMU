@@ -68,9 +68,6 @@ for row in range(numRows):
         colourHex=rgb_to_hex(red,green,blue)
         costMapGrid[row][col]=colourDict[colourHex]
 
-startNode="TEP"
-stopNode="EDGE"
-
 right = (0,1)
 left= (0,-1)
 down= (1,0)
@@ -110,6 +107,7 @@ def find(node):
             if costMapGrid[row][col]==node:
                 locnList.append([row,col])
     return locnList
+
 def addToFrontier(frontier,cost,path):
     for i in range(len(frontier)):
         oldCost=frontier[i][0]
@@ -136,14 +134,14 @@ def doSearch(startNode, stopNode):
 
            
 
-path=doSearch(startNode, stopNode)
+# path=doSearch(startNode, stopNode)
 
-pixelGrid= iio.imread("cmu_map_small.png", pilmode="RGB")
-for locn in path:
-    row=locn[0]
-    col=locn[1]
-    pixelGrid[row][col]=[63,255,63]
+# pixelGrid= iio.imread("cmu_map_small.png", pilmode="RGB")
+# for locn in path:
+#     row=locn[0]
+#     col=locn[1]
+#     pixelGrid[row][col]=[63,255,63]
 
 
-img = Image.fromarray(pixelGrid.astype(np.uint8) * 255, mode='RGB')
-img = img.save("route.png")
+# img = Image.fromarray(pixelGrid.astype(np.uint8) * 255, mode='RGB')
+# img = img.save("route.png")
