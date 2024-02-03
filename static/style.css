@@ -1,0 +1,14 @@
+.schedule{
+    text-align: center;
+    padding-top: 20px;
+}
+.schedule-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* vh stands for viewport height */
+}
+
+.schedule-form {
+    width: 50%; /* adjust this value to control the form's width */
+  }
