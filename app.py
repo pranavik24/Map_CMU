@@ -4,68 +4,76 @@ from searchFunction import *
 
 app = Flask(__name__)
 states = []
-
-mealIndex=states.index("MEAL")
-states[mealIndex]=closestMeal(find(states[mealIndex-1][0], states[mealIndex-1][1]))
-
-
-path1=doSearch(states[0], states[1])
-path2=doSearch(states[1], states[2])
-path3=doSearch(states[2], states[3])
-path4=doSearch(states[3], states[4])
-path5=doSearch(states[4], states[5])
-path6=doSearch(states[5], states[0])
+def search(states):
+    mealIndex=states.index("MEAL")
+    print(states)
+    print(states[mealIndex])
+    states[mealIndex]=closestMeal(find(states[mealIndex-1])[0][0], find(states[mealIndex-1])[0][1])
 
 
+    path1=doSearch(states[0], states[1])
+    path2=doSearch(states[1], states[2])
+    path3=doSearch(states[2], states[3])
+    path4=doSearch(states[3], states[4])
+    path5=doSearch(states[4], states[5])
+    path6=doSearch(states[5], states[0])
 
 
-pixelGrid1= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
-for locn in path1:
-    row=locn[0]
-    col=locn[1]
-    pixelGrid1[row][col]=[63,255,63]
-img1 = Image.fromarray(pixelGrid1.astype(np.uint8) * 255, mode='RGB')
-img1 = img1.save("route1.png")
 
-pixelGrid2= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
-for locn in path1:
-    row=locn[0]
-    col=locn[1]
-    pixelGrid2[row][col]=[63,255,63]
-img2 = Image.fromarray(pixelGrid2.astype(np.uint8) * 255, mode='RGB')
-img2 = img2.save("route2.png")
 
-pixelGrid3= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
-for locn in path1:
-    row=locn[0]
-    col=locn[1]
-    pixelGrid3[row][col]=[63,255,63]
-img3 = Image.fromarray(pixelGrid3.astype(np.uint8) * 255, mode='RGB')
-img3 = img3.save("route3.png")
+    pixelGrid1= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
+    for locn in path1:
+        row=locn[0]
+        col=locn[1]
+        pixelGrid1[row][col]=[63,255,63]
+    img1 = Image.fromarray(pixelGrid1.astype(np.uint8) * 255, mode='RGB')
+    img1 = img1.save("/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route1.png")
 
-pixelGrid4= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
-for locn in path1:
-    row=locn[0]
-    col=locn[1]
-    pixelGrid4[row][col]=[63,255,63]
-img4 = Image.fromarray(pixelGrid3.astype(np.uint8) * 255, mode='RGB')
-img4 = img4.save("route4.png")
+    pixelGrid2= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
+    for locn in path2:
+        row=locn[0]
+        col=locn[1]
+        pixelGrid2[row][col]=[63,255,63]
+    img2 = Image.fromarray(pixelGrid2.astype(np.uint8) * 255, mode='RGB')
+    img2 = img2.save("/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route2.png")
 
-pixelGrid5= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
-for locn in path1:
-    row=locn[0]
-    col=locn[1]
-    pixelGrid5[row][col]=[63,255,63]
-img5 = Image.fromarray(pixelGrid3.astype(np.uint8) * 255, mode='RGB')
-img5 = img5.save("route5.png")
+    pixelGrid3= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
+    for locn in path3:
+        row=locn[0]
+        col=locn[1]
+        pixelGrid3[row][col]=[63,255,63]
+    img3 = Image.fromarray(pixelGrid3.astype(np.uint8) * 255, mode='RGB')
+    img3 = img3.save("/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route3.png")
 
-pixelGrid6= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
-for locn in path1:
-    row=locn[0]
-    col=locn[1]
-    pixelGrid6[row][col]=[63,255,63]
-img6 = Image.fromarray(pixelGrid6.astype(np.uint8) * 255, mode='RGB')
-img6 = img6.save("route6.png")
+    pixelGrid4= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
+    for locn in path4:
+        row=locn[0]
+        col=locn[1]
+        pixelGrid4[row][col]=[63,255,63]
+    img4 = Image.fromarray(pixelGrid4.astype(np.uint8) * 255, mode='RGB')
+    img4 = img4.save("/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route4.png")
+
+    pixelGrid5= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
+    for locn in path5:
+        row=locn[0]
+        col=locn[1]
+        pixelGrid5[row][col]=[63,255,63]
+    img5 = Image.fromarray(pixelGrid5.astype(np.uint8) * 255, mode='RGB')
+    img5 = img5.save("/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route5.png")
+
+    pixelGrid6= iio.imread("./Search Code/cmu_map_small.png", pilmode="RGB")
+    for locn in path6:
+        row=locn[0]
+        col=locn[1]
+        pixelGrid6[row][col]=[63,255,63]
+    img6 = Image.fromarray(pixelGrid6.astype(np.uint8) * 255, mode='RGB')
+    img6 = img6.save("/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route6.png")
+    return (["/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route1.png", 
+             "/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route2.png", 
+             "/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route3.png", 
+             "/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route4.png",
+              "/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route5.png", 
+              "/Users/pranavikondapalli/Desktop/CMU_ROUTES/static/route6.png"], closestMeal(find(states[mealIndex-1])[0][0], find(states[mealIndex-1])[0][1]))
 
 @app.route('/')
 def index_page():  # put home applications's code here
@@ -113,15 +121,26 @@ def route_page():  # put route applications's code here
                     "After Class 4":5,
                     }
     whenMeal = mealTimeDict.get(request.form["mealTime"])
+    dorms=request.form["dorms"]
+    class1= request.form["class1"]
+    class2=request.form["class2"]
+    class3 = request.form["class3"]
+    class4 = request.form["class4"]
+    places = [dorms, class1, class2, class3, class4]
+            
     states.append(dormsShort.get(request.form["dorms"]))
     states.append(buildingsShort.get(request.form["class1"]))
     states.append(buildingsShort.get(request.form["class2"]))
     states.append(buildingsShort.get(request.form["class3"]))
     states.append(buildingsShort.get(request.form["class4"]))
     states.insert(whenMeal, "MEAL")
-    print(states)
+    solution=search(states)
+    images = solution[0];
+    places.insert(whenMeal, solution[1])
+    places.append(dorms)
 
-    return render_template('route.html')
+
+    return render_template('route.html', images=images, places=places)
 
 @app.route('/enterClasses')
 def enterClasses_page():  # put home applications's code here
