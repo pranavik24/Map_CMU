@@ -50,11 +50,9 @@
     </select>
     <label for="cars">When would you like to have a meal?:</label>
     <select name="mealTime" id="mealTime">
-        <option name="mealType" value="one-two">Before Class 1</option>
-        <option name="mealType" value="one-two">Between Class 1 and 2</option>
-        <option name="mealType" value="one-two">Between Class 2 and 3</option>
-        <option name="mealType" value="one-two">Between Class 3 and 4</option>
-        <option name="mealType" value="one-two">After Class 4</option>
+        {% for m in mealTimes %}
+            <option name="mealType" value="{{m}}">{{m}}</option>
+         {% endfor %}
     </select>
     <button class="confirmBtn"  type="submit">Get My Routes</button>
 </form>
